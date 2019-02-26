@@ -1,0 +1,109 @@
+
+1.添加代码包com.tile.download下所有代码
+
+2.添加资源文件和libs下jar文件
+
+3.在build.gradle中添加依赖，并依赖libs下jar文件
+	compile 'com.github.satyan:sugar:1.5'
+	compile 'com.arialyy.aria:aria-core:3.5.1'
+	annotationProcessor 'com.arialyy.aria:aria-compiler:3.5.1'
+	compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+	compile 'io.reactivex:rxandroid:1.2.1'
+	compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+
+
+4.在AndoridManifest.xml中添加
+
+	注册actviity
+
+	<activity android:name="com.mapscloud.tile.download.view.DownloadTileActivity"
+		android:launchMode="singleTask"
+		/>
+
+5.在主activity中添加如下方法，并调用
+
+	private void initAria(){
+        Aria.download(this).register();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<DownloadEntity> list = Aria.download(activity).getAllNotCompletTask();
+                if(list != null && list.size() > 0){
+                    TestVectorMap.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TestVectorMap.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    BasicDialog.Builder builder = new BasicDialog.Builder(activity);
+                                    builder.setMessage("有未完成的地图下载，是否继续？");
+                                    builder.setPositiveButton(R.string.basic_dialog_positive, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            DownloadTileManager.getInstance().setContinueDownload(true);
+                                        }
+                                    });
+                                    builder.setNegativeButton(R.string.basic_dialog_negative, null);
+                                    builder.create().show();
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+	@Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Aria.download(this).unRegister();
+    }
+
+	@Download.onPre void onPre(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().onPre(task);
+    }
+
+    @Download.onTaskStart void taskStart(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskStart(task);
+    }
+
+    @Download.onTaskResume void taskResume(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskResume(task);
+    }
+
+    @Download.onTaskStop void taskStop(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskStop(task);
+    }
+
+    @Download.onTaskCancel void taskCancel(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskCancel(task);
+    }
+
+    @Download.onTaskFail void taskFail(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskFail(task);
+    }
+
+    @Download.onTaskComplete void taskComplete(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskComplete(task);
+    }
+
+    @Download.onTaskRunning() void taskRunning(DownloadTask task) {
+        DownloadTileManager.getInstance().getDownLoadCallBack().taskRunning(task);
+    }
+
+6.在地图准备好的回调中添加如下方法：
+	MapUtils.getInstance().init(mMapboxMap, mapView, activity);
+	//初始化地图数据包格子下载工具
+	List<String> sourceName = new ArrayList<>();
+	List<Source> lis = mMapboxMap.getSources();
+	for(Source source : lis){
+		if(!source.getId().equals("com.mapbox.annotations"))
+			sourceName.add(source.getId());
+	}
+	DownloadTileManager.getInstance().init(activity, mapView, mMapboxMap, sourceName);
+
+7.在首页按钮的点击事件添加如下
+	DownloadTileManager.getInstance().showDialog(activity);
+
+8.修改item_downloading_listview.xml中最下方的HorizontalProgressBarWithNumber控件包名

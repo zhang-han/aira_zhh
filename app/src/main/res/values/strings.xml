@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DownLoadPtpTest</string>
+
+    <string name="text">
+
+    </string>
+
+    <string name="edit_view_hint">请输入地图样式文件地址</string>
+    <string name="btn_submit">使用</string>
+    <string name="btn_style_btn1">style1</string>
+    <string name="btn_style_btn2">style2</string>
+    <string name="btn_style_btn3">style3</string>
+
+</resources>

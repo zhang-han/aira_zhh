@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/basic_dialog_width"
+    android:layout_height="wrap_content"
+    android:background="#ffff"
+    android:minHeight="160dp"
+    android:minWidth="240dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@android:id/title"
+        style="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle"
+        android:layout_width="@dimen/basic_dialog_width"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/basic_dialog_padding_medium"
+        android:text="@string/basic_dialog_title"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="@dimen/basic_dialog_title_size" />
+
+    <View
+        android:layout_width="@dimen/basic_dialog_width"
+        android:layout_height="@dimen/basic_dialog_split_line_height"
+        android:background="@android:color/holo_blue_light" />
+
+    <TextView
+        android:id="@android:id/message"
+        android:layout_width="@dimen/basic_dialog_width"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/basic_dialog_padding_small"
+        android:paddingLeft="@dimen/basic_dialog_padding_medium"
+        android:paddingRight="@dimen/basic_dialog_padding_medium"
+        android:paddingTop="@dimen/basic_dialog_padding_small"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/basic_dialog_text_size" />
+
+    <LinearLayout
+        android:layout_width="@dimen/basic_dialog_width"
+        android:layout_height="wrap_content"
+        android:background="#fddd"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@android:id/button1"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.5dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/basic_dialog_button_background"
+            android:padding="@dimen/basic_dialog_button_padding"
+            android:text="@string/basic_dialog_negative"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/basic_dialog_button_text_size" />
+
+        <Button
+            android:id="@android:id/button2"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="0.5dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/basic_dialog_button_background"
+            android:padding="@dimen/basic_dialog_button_padding"
+            android:text="@string/basic_dialog_neutral"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/basic_dialog_button_text_size" />
+
+        <Button
+            android:id="@android:id/button3"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/basic_dialog_button_background"
+            android:padding="@dimen/basic_dialog_button_padding"
+            android:text="@string/basic_dialog_positive"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/basic_dialog_button_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

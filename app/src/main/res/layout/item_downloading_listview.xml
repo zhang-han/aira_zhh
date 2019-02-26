@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="14dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/tv_downloading_pause"
+            >
+            <TextView
+                android:id="@+id/tv_downloading_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123-123-123"
+                android:lines="1"
+                android:textSize="17sp"
+                android:textColor="#000000"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_download_filesize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="172.25MB"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:gravity="center_vertical"
+                android:layout_below="@+id/tv_downloading_name"
+                />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_downloading_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#2774F4"
+            android:text="暂停"
+            android:textSize="14sp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@+id/view_downloading_item_div"
+            android:layout_centerVertical="true"
+
+            />
+
+        <View
+            android:id="@+id/view_downloading_item_div"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#CCCCCC"
+            android:layout_toLeftOf="@+id/tv_downloading_delete"/>
+
+
+        <TextView
+            android:id="@+id/tv_downloading_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#2774F4"
+            android:text="取消"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:paddingRight="13dp"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            />
+
+        <com.mapscloud.download.view.HorizontalProgressBarWithNumber
+            android:id="@+id/pgb_downloading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:progress_text_color_a="#2774F4"
+            app:progress_reached_color_a="#2774F4"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
