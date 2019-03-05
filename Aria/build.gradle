@@ -1,16 +1,13 @@
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zhang-han'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion '26.0.2'
-
+  compileSdkVersion 26
   defaultConfig {
-    minSdkVersion 9
-    targetSdkVersion 23
-    versionCode 329
-    versionName "3.2.9"
+    minSdkVersion 19
+    targetSdkVersion 26
+    versionCode 1
+    versionName "1.0.0"
   }
   buildTypes {
     release {
@@ -20,6 +17,16 @@ android {
   }
   lintOptions {
     abortOnError false
+  }
+
+  publish {
+      userOrg = 'zhang-han'         // bintray.com 用户名
+      groupId = 'com.zhang-han'  // jcenter上的路径
+      artifactId = 'aria'          // 项目名称
+      publishVersion = '1.0.0'  // 版本号
+      desc = 'aria downloader'   // 项目 描述(不重要)。"不重要"的意思是你可以乱填,但是不能删除 desc 哦。
+      website = 'https://github.com/zhang-han/aria_zhh' //网站。 就填入Github 项目地址就可以了。也不能删除 website 哦。
+
   }
 }
 
@@ -32,4 +39,3 @@ dependencies {
 
 //    compile project(':AriaFtpPlug')
 }
-apply from: 'bintray-release.gradle'
