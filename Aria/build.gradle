@@ -8,6 +8,12 @@ android {
     targetSdkVersion 26
     versionCode 1
     versionName "1.0.0"
+    //添加了javaCompileOptions
+    javaCompileOptions {
+      annotationProcessorOptions {
+        includeCompileClasspath = true
+      }
+    }
   }
   buildTypes {
     release {
@@ -30,12 +36,18 @@ android {
 //  }
 }
 
+
 dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   testCompile 'junit:junit:4.12'
   compile 'com.android.support:appcompat-v7:23.1.1'
-  compile project(':AriaAnnotations')
-  compile 'com.arialyy.aria:aria-ftp-plug:1.0.4'  // 打包时用这个
+  compile 'com.arialyy.aria:aria-ftp-plug:1.0.4'
 
-//    compile project(':AriaFtpPlug')
+  compile 'com.google.auto:auto-common:0.6'
+  compile 'com.google.auto.service:auto-service:1.0-rc2'
+  compile 'com.squareup:javapoet:1.9.0'
+
+  // 打包时用这个
+  //    compile project(':AriaFtpPlug')
+//  api project(':AriaJar')
 }

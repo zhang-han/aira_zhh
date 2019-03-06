@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Aria/Aria.iml" filepath="$PROJECT_DIR$/Aria/Aria.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AriaAnnotations/AriaAnnotations.iml" filepath="$PROJECT_DIR$/AriaAnnotations/AriaAnnotations.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AriaCompiler/AriaCompiler.iml" filepath="$PROJECT_DIR$/AriaCompiler/AriaCompiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/GridTileDownloadDemo.iml" filepath="$PROJECT_DIR$/GridTileDownloadDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
