@@ -1,5 +1,5 @@
-apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+//apply plugin: 'com.novoda.bintray-release'
 
 android {
   compileSdkVersion 26
@@ -17,17 +17,17 @@ android {
   }
   lintOptions {
     abortOnError false
+    checkReleaseBuilds false
   }
 
-  publish {
-      userOrg = 'zhang-han'         // bintray.com 用户名
-      groupId = 'com.zhang-han'  // jcenter上的路径
-      artifactId = 'aria'          // 项目名称
-      publishVersion = '1.0.0'  // 版本号
-      desc = 'aria downloader'   // 项目 描述(不重要)。"不重要"的意思是你可以乱填,但是不能删除 desc 哦。
-      website = 'https://github.com/zhang-han/aria_zhh' //网站。 就填入Github 项目地址就可以了。也不能删除 website 哦。
-
-  }
+//  publish {
+//      userOrg = 'zhang-han'         // bintray.com 用户名
+//      groupId = 'com.zhang-han'  // jcenter上的路径
+//      artifactId = 'aria'          // 项目名称
+//      publishVersion = '1.0.0'  // 版本号
+//      desc = 'aria downloader'   // 项目 描述(不重要)。"不重要"的意思是你可以乱填,但是不能删除 desc 哦。
+//      website = 'https://github.com/zhang-han/aria_zhh' //网站。 就填入Github 项目地址就可以了。也不能删除 website 哦。
+//  }
 }
 
 dependencies {
